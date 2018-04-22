@@ -2,6 +2,11 @@ from selenium import webdriver
 import time,pytesseract
 from PIL import Image
 
+Favorite_food_1 = input("(شويدپلو با گوشت / قيمه سيب زميني) : غذاي روز شنبه")
+Favorite_food_2 = input("(استانبولي / شنيسل مرغ) : غذاي روز يکشنبه")
+Favorite_food_3 = input("(کوفته / کنسرو تن ماهي) : غذاي روز دوشنبه")
+Favorite_food_4 = input("(کوکو سبزي / کوبيده) : غذاي روز سه شنبه")
+
 User = '96521236'     #Username and password
 Pass = '4830137614'
 
@@ -31,7 +36,7 @@ time.sleep(3) #time required to fill the Captcha Input Field
 
 driver.find_element_by_xpath('//*[@id="login_btn_submit"]').click()  #logging in
 
-time.sleep(8)
+time.sleep(5)
 
 driver.find_element_by_xpath('//*[@id="1_div"]/div[1]/a/img').click()
 
@@ -40,40 +45,76 @@ time.sleep(8)
 A = driver.find_element_by_id('nextWeekBtn')
 A.click()
 
+
 time.sleep(8)
 
-'''Food_P = ['شنيسل مرغ','تن ماهي','کوبيده','قيمه']
-Food_P_by_id = ['userWeekReserve.selected3','userWeekReserve.selected5','userWeekReserve.selected7']
 
-
-
-for Food in range(3):
-    driver.find_element_by_id(Food_P_by_id[Food]).click()
-
-    time.sleep(4)'''
 
                               
+if Favorite_food_1 == "قيمه سيب زميني":
+    
+    driver.find_element_by_xpath('//*[@id="userWeekReserves.selected1"]').click()
 
-driver.find_element_by_xpath('//*[@id="userWeekReserves.selected1"]').click()
+else:
+    driver.find_element_by_xpath('//*[@id="userWeekReserves.selected0"]').click()
 
-time.sleep(2)                                                                     #selecting food for two days
 
-driver.find_element_by_xpath('//*[@id="userWeekReserves.selected3"]').click()
+    
 
 time.sleep(2)
 
-driver.find_element_by_xpath('//*[@id="userWeekReserves.selected5"]').click()
+
+
+                                                             #selecting food for a week
+
+if Favorite_food_2 == "شنيسل مرغ":
+    
+    driver.find_element_by_xpath('//*[@id="userWeekReserves.selected3"]').click()
+
+else:
+    driver.find_element_by_xpath('//*[@id="userWeekReserves.selected2"]').click()
+    
+
+    
 
 time.sleep(2)
 
-driver.find_element_by_xpath('//*[@id="userWeekReserves.selected6"]').click()
+
+
+
+if Favorite_food_3 == "کنسرو تن ماهي":
+    
+    driver.find_element_by_xpath('//*[@id="userWeekReserves.selected5"]').click()
+
+else:
+    driver.find_element_by_xpath('//*[@id="userWeekReserves.selected4"]').click()
+
+
+    
+
+time.sleep(2)
+
+
+
+if Favorite_food_4 == "کوکو سبزي":
+    
+    driver.find_element_by_xpath('//*[@id="userWeekReserves.selected6"]').click()
+
+else:
+    driver.find_element_by_xpath('//*[@id="userWeekReserves.selected7"]').click()
+
+
+    
 
 time.sleep(3)
 
+
 driver.find_element_by_xpath('//*[@id="doReservBtn"]').click()       #Reservation
+
 
 time.sleep(5)
 
 
 driver.quit()        #DONE:D
+
 
