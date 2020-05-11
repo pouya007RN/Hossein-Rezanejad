@@ -7,8 +7,8 @@ Favorite_food_2 = input("(استانبولي / شنيسل مرغ) : غذاي ر�
 Favorite_food_3 = input("(کوفته / کنسرو تن ماهي) : غذاي روز دوشنبه")
 Favorite_food_4 = input("(کوکو سبزي / کوبيده) : غذاي روز سه شنبه")
 
-User = '96521236'     #Username and password
-Pass = '4830137614'
+User = '********'     #Username and password
+Pass = '********'
 
 driver_path = r"C:\Users\CHS\Desktop\MicrosoftWebDriver.exe"
 driver = webdriver.Edge(driver_path)                  #location of chrome webdriver
